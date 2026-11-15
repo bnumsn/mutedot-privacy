@@ -3,112 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy — MuteDot: Watch Mic Blocker</title>
+  <title>MuteDot — Hardware Watch Mic Blocker &amp; Edge Status Indicator for Wear OS</title>
+  <meta name="description" content="Hardware-level microphone mute switch, anti-hijack lock, and customizable red/green bezel status dot for Wear OS smartwatches. Zero internet permissions. Zero audio capture.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
   <style>
     :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      padding: 32px 20px 64px;
-      background: #090b10;
+      background: #07090d;
       color: #e6edf3;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.65;
     }
-    main {
-      max-width: 760px;
+    header {
+      max-width: 960px;
       margin: 0 auto;
-      background: #121620;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 16px;
-      padding: 28px 32px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
-    h1 { color: #ffffff; font-size: 1.75rem; margin-top: 0; }
-    h2 { color: #82b1ff; font-size: 1.15rem; margin-top: 1.8rem; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .brand img { width: 36px; height: 36px; border-radius: 10px; }
+    nav { display: flex; gap: 20px; font-size: 0.95rem; }
+    nav a { color: #9fb3c8; text-decoration: none; }
+    nav a:hover { color: #69f0ae; }
+    main { max-width: 960px; margin: 0 auto; padding: 48px 24px 72px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .badges { justify-content: center; }
+    }
+    .pill {
+      display: inline-block;
+      background: rgba(0, 230, 118, 0.13);
+      border: 1px solid rgba(0, 230, 118, 0.38);
+      color: #69f0ae;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 2.35rem;
+      line-height: 1.2;
+      margin: 0 0 16px;
+      color: #ffffff;
+    }
+    .lead { font-size: 1.08rem; color: #b0bec5; margin: 0 0 24px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    .btn-primary { background: #00e676; color: #050807; }
+    .btn-secondary {
+      background: #141923;
+      color: #e6edf3;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .watch-pair {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .watch-card {
+      background: #0f131c;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 24px;
+      padding: 14px;
+      text-align: center;
+    }
+    .watch-card img {
+      width: 156px;
+      height: 156px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      display: block;
+    }
+    .watch-card span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #90a4ae;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .card {
+      background: #11151f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .card h3 { margin: 0 0 8px; color: #ffffff; font-size: 1.08rem; }
+    .card p { margin: 0; color: #9fb3c8; font-size: 0.94rem; }
     code {
       background: rgba(130, 177, 255, 0.12);
       color: #69f0ae;
       padding: 2px 6px;
       border-radius: 5px;
-      font-size: 0.92em;
+      font-size: 0.9em;
     }
-    .badge {
-      display: inline-block;
-      background: rgba(0, 230, 118, 0.14);
-      border: 1px solid rgba(0, 230, 118, 0.4);
-      color: #69f0ae;
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 12px;
+    footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 24px 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      color: #78909c;
+      font-size: 0.9rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .meta { color: #90a4ae; font-size: 0.92rem; margin-bottom: 1.5rem; }
-    ul { padding-left: 1.25rem; }
-    li { margin-bottom: 0.5rem; }
+    footer a { color: #82b1ff; text-decoration: none; }
   </style>
 </head>
 <body>
+  <header>
+    <a class="brand" href="/">
+      <img src="assets/icon.png" alt="MuteDot Icon">
+      <span>MuteDot</span>
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/review-demo.html">Walkthrough Video</a>
+      <a href="mailto:support@mutedot.com">Support</a>
+    </nav>
+  </header>
+
   <main>
-    <div class="badge">0 INTERNET PERMISSIONS · 0 AUDIO CAPTURE</div>
-    <h1>Privacy Policy — MuteDot: Watch Mic Blocker</h1>
-    <p class="meta">
-      <strong>Effective Date:</strong> November 15, 2026 &nbsp;|&nbsp;
-      <strong>Package ID:</strong> <code>app.mutedot.wear</code>
-    </p>
+    <section class="hero">
+      <div>
+        <div class="pill">0 INTERNET PERMISSIONS · 0 AUDIO CAPTURE · WEAR OS 3–6</div>
+        <h1>A Physical-Feel Microphone Kill Switch for Your Smartwatch.</h1>
+        <p class="lead">
+          <strong>MuteDot: Watch Mic Blocker</strong> (<code>app.mutedot.wear</code>) locks your Wear OS
+          smartwatch microphone OFF at the hardware audio layer, blocks silent background unmute attempts,
+          and displays an unmistakable <strong>Red / Green status dot</strong> on the edge of any watch face.
+        </p>
+        <div class="badges">
+          <a class="btn btn-primary" href="/review-demo.html">Watch Live Demo</a>
+          <a class="btn btn-secondary" href="/privacy.html">Read Air-Gapped Privacy Policy</a>
+        </div>
+      </div>
 
-    <h2>1. Zero Data Collection Guarantee</h2>
-    <p>
-      <strong>MuteDot: Watch Mic Blocker</strong> ("MuteDot") does <strong>not</strong> collect, record,
-      transmit, store externally, or share any personal data, audio data, usage analytics, crash logs,
-      or device identifiers.
-    </p>
+      <div class="watch-pair">
+        <div class="watch-card">
+          <img src="assets/01_mic_locked.png" alt="MuteDot Microphone Locked Screen">
+          <span>Red Dot · Mic Locked</span>
+        </div>
+        <div class="watch-card">
+          <img src="assets/02_mic_open.png" alt="MuteDot Microphone Open Screen">
+          <span>Green Dot · Mic Open</span>
+        </div>
+      </div>
+    </section>
 
-    <h2>2. Air-Gapped Permission Architecture</h2>
-    <ul>
-      <li>
-        <strong>Zero Network Access:</strong> <code>android.permission.INTERNET</code> and
-        <code>android.permission.ACCESS_NETWORK_STATE</code> are stripped from the application manifest.
-        MuteDot cannot establish network connections or transmit any information off your smartwatch.
-      </li>
-      <li>
-        <strong>Zero Audio Recording:</strong> <code>android.permission.RECORD_AUDIO</code> is stripped
-        from the application manifest. MuteDot only controls the system hardware mute switch via
-        <code>android.permission.MODIFY_AUDIO_SETTINGS</code>.
-      </li>
-    </ul>
-
-    <h2>3. Accessibility Service Disclosure</h2>
-    <p>
-      If you enable the optional <strong>Edge Status Dot</strong> in Wear OS Accessibility Settings:
-    </p>
-    <ul>
-      <li>
-        MuteDot uses Android's <code>AccessibilityService</code>
-        (<code>TYPE_ACCESSIBILITY_OVERLAY</code>) <strong>solely</strong> to display a tiny, non-interactive
-        red or green microphone status indicator dot on the edge of your watch screen across watch faces.
-      </li>
-      <li>
-        MuteDot declares <code>android:canRetrieveWindowContent="false"</code>,
-        <code>android:canPerformGestures="false"</code>, and subscribes to <strong>zero</strong>
-        accessibility event types.
-      </li>
-      <li>
-        MuteDot <strong>never</strong> reads screen text, notifications, passwords, UI hierarchies, or user actions.
-      </li>
-    </ul>
-
-    <h2>4. Local On-Watch Preferences Only</h2>
-    <p>
-      Settings (such as mute lock state, dot position, size, opacity, and local blocked-unmute counter)
-      are stored exclusively on your watch in private storage with cloud backup and device transfer
-      disabled (<code>allowBackup="false"</code>), and are permanently deleted upon uninstallation.
-    </p>
-
-    <h2>5. Contact</h2>
-    <p>
-      For privacy questions regarding MuteDot, please contact the developer via the support email address
-      listed on the official Google Play Store listing page.
-    </p>
+    <section id="features" class="grid">
+      <div class="card">
+        <h3>Hardware Mute &amp; Anti-Hijack Lock</h3>
+        <p>Controls <code>AudioManager.setMicrophoneMute</code> directly and monitors audio recording callbacks to re-lock instantly if a background app attempts to unmute.</p>
+      </div>
+      <div class="card">
+        <h3>Zero-ADB Bezel Status Dot</h3>
+        <p>Optional <code>TYPE_ACCESSIBILITY_OVERLAY</code> indicator at 9, 12, 3, or 6 o'clock with built-in OLED burn-in pixel shifting and sleep auto-hide.</p>
+      </div>
+      <div class="card">
+        <h3>4 Instant Ways to Toggle</h3>
+        <p>Toggle from the main app, Watch Face Complication, Wear OS Swipe Tile, Quick Settings shade, or double-press hardware button shortcut.</p>
+      </div>
+      <div class="card">
+        <h3>Mathematically Air-Gapped</h3>
+        <p><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, and <code>RECORD_AUDIO</code> permissions are completely stripped from the APK. Supports 85 global watch locales.</p>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div>&copy; 2026 MuteDot (<code>app.mutedot.wear</code>). All rights reserved.</div>
+    <div>
+      <a href="/privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp;
+      <a href="/review-demo.html">Policy Demo</a> &nbsp;&middot;&nbsp;
+      <a href="mailto:support@mutedot.com">support@mutedot.com</a>
+    </div>
+  </footer>
 </body>
 </html>
