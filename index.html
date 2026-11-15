@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — MuteDot: Watch Mic Blocker</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      padding: 32px 20px 64px;
+      background: #090b10;
+      color: #e6edf3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      background: #121620;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
+      padding: 28px 32px;
+    }
+    h1 { color: #ffffff; font-size: 1.75rem; margin-top: 0; }
+    h2 { color: #82b1ff; font-size: 1.15rem; margin-top: 1.8rem; }
+    code {
+      background: rgba(130, 177, 255, 0.12);
+      color: #69f0ae;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.92em;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 230, 118, 0.14);
+      border: 1px solid rgba(0, 230, 118, 0.4);
+      color: #69f0ae;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .meta { color: #90a4ae; font-size: 0.92rem; margin-bottom: 1.5rem; }
+    ul { padding-left: 1.25rem; }
+    li { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">0 INTERNET PERMISSIONS · 0 AUDIO CAPTURE</div>
+    <h1>Privacy Policy — MuteDot: Watch Mic Blocker</h1>
+    <p class="meta">
+      <strong>Effective Date:</strong> November 15, 2026 &nbsp;|&nbsp;
+      <strong>Package ID:</strong> <code>app.mutedot.wear</code>
+    </p>
+
+    <h2>1. Zero Data Collection Guarantee</h2>
+    <p>
+      <strong>MuteDot: Watch Mic Blocker</strong> ("MuteDot") does <strong>not</strong> collect, record,
+      transmit, store externally, or share any personal data, audio data, usage analytics, crash logs,
+      or device identifiers.
+    </p>
+
+    <h2>2. Air-Gapped Permission Architecture</h2>
+    <ul>
+      <li>
+        <strong>Zero Network Access:</strong> <code>android.permission.INTERNET</code> and
+        <code>android.permission.ACCESS_NETWORK_STATE</code> are stripped from the application manifest.
+        MuteDot cannot establish network connections or transmit any information off your smartwatch.
+      </li>
+      <li>
+        <strong>Zero Audio Recording:</strong> <code>android.permission.RECORD_AUDIO</code> is stripped
+        from the application manifest. MuteDot only controls the system hardware mute switch via
+        <code>android.permission.MODIFY_AUDIO_SETTINGS</code>.
+      </li>
+    </ul>
+
+    <h2>3. Accessibility Service Disclosure</h2>
+    <p>
+      If you enable the optional <strong>Edge Status Dot</strong> in Wear OS Accessibility Settings:
+    </p>
+    <ul>
+      <li>
+        MuteDot uses Android's <code>AccessibilityService</code>
+        (<code>TYPE_ACCESSIBILITY_OVERLAY</code>) <strong>solely</strong> to display a tiny, non-interactive
+        red or green microphone status indicator dot on the edge of your watch screen across watch faces.
+      </li>
+      <li>
+        MuteDot declares <code>android:canRetrieveWindowContent="false"</code>,
+        <code>android:canPerformGestures="false"</code>, and subscribes to <strong>zero</strong>
+        accessibility event types.
+      </li>
+      <li>
+        MuteDot <strong>never</strong> reads screen text, notifications, passwords, UI hierarchies, or user actions.
+      </li>
+    </ul>
+
+    <h2>4. Local On-Watch Preferences Only</h2>
+    <p>
+      Settings (such as mute lock state, dot position, size, opacity, and local blocked-unmute counter)
+      are stored exclusively on your watch in private storage with cloud backup and device transfer
+      disabled (<code>allowBackup="false"</code>), and are permanently deleted upon uninstallation.
+    </p>
+
+    <h2>5. Contact</h2>
+    <p>
+      For privacy questions regarding MuteDot, please contact the developer via the support email address
+      listed on the official Google Play Store listing page.
+    </p>
+  </main>
+</body>
+</html>
